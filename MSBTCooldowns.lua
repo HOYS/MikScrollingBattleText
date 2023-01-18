@@ -233,7 +233,7 @@ local function OnUpdate(frame, elapsed)
 		for cooldownID, usedTime in pairs(watchItemIDs) do
 			if (currentTime >= (usedTime + 1)) then
 	lastCooldownIDs["item"] = cooldownID
-				OnUpdateCooldown("item", GetItemCooldown)
+				OnUpdateCooldown("item", C_Container.GetItemCooldown)
 	watchItemIDs[cooldownID] = nil
 				break
 			end
@@ -242,7 +242,7 @@ local function OnUpdate(frame, elapsed)
 		-- Loop through all of the active cooldowns.
 		local currentTime = GetTime()
 		for cooldownType, cooldowns in pairs(activeCooldowns) do
-			local cooldownFunc = (cooldownType == "item") and GetItemCooldown or GetSpellCooldown
+			local cooldownFunc = (cooldownType == "item") and C_Container.GetItemCooldown or GetSpellCooldown
 			local infoFunc = (cooldownType == "item") and GetItemInfo or GetSpellInfo
 			for cooldownID, remainingDuration in pairs(cooldowns) do
 				-- Ensure the cooldown is still valid.
