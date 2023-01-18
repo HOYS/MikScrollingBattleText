@@ -430,7 +430,7 @@ local function UseContainerItemHook(bag, slot)
 	-- Get item id for the used bag and slot.
 	local itemID
 	if IsClassic then
-		itemID = GetContainerItemID(bag, slot)
+		itemID = C_Container.GetContainerItemID(bag, slot)
 	else
 		itemID = C_Container.GetContainerItemID(bag, slot)
 	end
